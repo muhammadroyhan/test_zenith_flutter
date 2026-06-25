@@ -1,0 +1,45 @@
+1. 
+Stok Awal : 100
+Stok Masuk : +50
+Stok Masuk : +20
+Penjualan : -30
+Penjualan : -10
+
+pertanyaannya : Berapa Stok akhirnya ?
+
+Jawab :
+Stok Akhir = Stok Awal + Total Stok Masuk - Total Penjualan
+Stok Akhir = 100 + (50 + 20) - (30 + 20)
+           = 130
+Stok Akhir = 130
+
+2. 
+SELECT 
+    b.kode_barang AS "Kode Barang",
+    b.nama_barang AS "Nama Barang",
+    COALESCE(SUM(sm.qty), 0) AS "Stok Masuk",
+    COALESCE(SUM(p.qty), 0) AS "Terjual",
+    (b.stok_awal + COALESCE(SUM(sm.qty), 0) - COALESCE(SUM(p.qty), 0)) AS "Stok Akhir"
+FROM 
+    barang b
+LEFT JOIN 
+    stok_masuk sm ON b.id = sm.barang_id
+LEFT JOIN 
+    penjualan p ON b.id = p.barang_id
+GROUP BY 
+    b.id, b.kode_barang, b.nama_barang, b.stok_awal;
+
+3. 
+SELECT 
+    c.id_customer,
+    c.nama_customer,
+    SUM(p.qty) AS total_qty_pembelian
+FROM 
+    customer c
+JOIN 
+    penjualan p ON c.id_customer = p.id_customer
+GROUP BY 
+    c.id_customer, c.nama_customer
+ORDER BY 
+    total_qty_pembelian DESC
+LIMIT 1;

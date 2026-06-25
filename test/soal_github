@@ -1,0 +1,25 @@
+1. Apa fungsi Git dan GitHub?
+2. Jelaskan perbedaan git pull dan git fetch.
+3. Bagaimana cara membuat branch baru?
+4. Bagaimana cara commit perubahan?
+5. Bagaimana cara push ke GitHub?
+6. Bagaimana menangani merge conflict?
+
+jawab :
+
+1. Git berfungsi untuk mencatat setiap perubahan pada code, sedangkan GitHub berfunsgi sebagai mencadangkan,menyimpan,kolaborasi dengan tim dan membagikan project bisa secara public atau privat.
+
+2. perbedaan git pull dan git fetch terletak pada kegunaannya git fetch digunakan untuk melihat perbedaan codingan yg kita kerjakan dengan codingan tim kita, sedangkan git pull digunakan untuk menggabungkan code yg tim kita kerjakan dengan code yg saya kerjakan 
+
+3. pertama kita lakukan perintah -> git branch nama-branch-baru
+kedua -> git checkout -b nama-branch-baru
+
+4. pertama -> git add nama_file.txt (digunakan untuk 1 file dengan nama file tersebut) atau git add . (digunakan untuk memasukkan semua file kita ubah)
+kedua -> git commit -m "Menambahkan fitur search"
+
+5. pertama -> git push -u origin nama-branch (yg akan kita tuju)
+kedua -> git push
+
+6. pertama -> kita lakukan fetch terlebih dahulu jika ada conflict maka kita bisa memilih code mana saja yg akan kita gabungkan biasanya kalau di github desktop ada simbol (<<<<<, ======= ,>>>>>) symbol ini menunjukan code yg crash 1 orang dengan orang lainnya
+kedua -> kita lalukan pemilihan code yg akan digunakan dengan yg tidak digunakan 
+ketiga -> kita save file-nya kemudian kita lakukan perintah 'git add' kemudian 'git commit -m "(diberi keterangan)"
